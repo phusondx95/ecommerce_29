@@ -1,5 +1,7 @@
 <div class="container">
-  <div class="image"><%= image_tag @product.image_url %></div>
+  <div class="image">
+    <%= image_tag @product.image_url unless @product.image_url.blank? %>
+  </div>
   <ul class="info">
     <li class="title"><%= @product.title %></li>
     <li><%= @product.description %></li>

@@ -32,6 +32,7 @@ en:
     pls_log_in: "Please log in"
     not_correct_user: "You can not edit this user's profile"
     profile: "Your profile"
+    products: "Your products"
   sessions:
     new: "Log in to your account"
     success: "You have logged in"
@@ -54,6 +55,14 @@ en:
     update: "You have updated this product"
     item_exist: "This item is in a cart"
     views: "Views"
+    approve_success: "Product has been approved"
+    approve_fail: "Couldn't approve product"
+    title: "Title"
+    user: "User"
+    approve: "Approve"
+    unapproved: "Unapproved products"
+    status_unapproved: "Unapproved"
+    approved: "Approved"
   line_items:
     create_success: "Added item to cart"
     create_failed: "Can not add item to cart"
@@ -124,6 +133,7 @@ en:
     category: "Category"
     sub: "Sub Category"
     not_found: "Can not find this category"
+    none: "None"
   back: "Back"
   search: "Search"
   filter:
@@ -137,3 +147,6 @@ en:
     alph: "Alphabet"
     price_high_to_low: "Price: High to Low"
     price_low_to_high: "Price: Low to High"
+  admin: "Admin"
+  ad:
+    sure?: "Are you sure?"

@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load',function() {
   $('#products .pag').on('click', '.pag', function() {
     $.getScript(this.href);
     return false;
