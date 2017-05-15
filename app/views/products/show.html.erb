@@ -4,7 +4,8 @@
     <li class="title"><%= @product.title %></li>
     <li><%= @product.description %></li>
     <li><%= @product.price %>d</li>
-    <%= rating_for @product, "rating" %>
+    <li><%= rating_for @product, "rating" %></li>
+    <li><%= t "products.views" %>: <%= @product.views %></li>
   </ul>
   <% if logged_in? %>
     <% if current_user.is_admin %>

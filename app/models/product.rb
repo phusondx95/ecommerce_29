@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   belongs_to :user
   has_many :line_items
   has_and_belongs_to_many :categories
+  has_many :impressions, as: :impressionable
   before_create :approve_product
   before_destroy :not_referenced_by_line_item
   validates :title, :description, :image_url, presence: true
@@ -15,6 +16,9 @@ class Product < ApplicationRecord
   }
 
   scope :valid_products, -> {where(is_approved: true)}
+  scope :most_viewed, -> {order(views: :desc)}
+  scope :rating, -> {order(ratings: :desc)}
+  scope :most_sold, -> {order(sold_units: :desc)}
   scope :order_newest, -> {order(created_at: :desc)}
   scope :order_oldest, -> {order(created_at: :asc)}
   scope :alphabet, -> {order(title: :asc)}
