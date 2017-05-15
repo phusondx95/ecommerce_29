@@ -1,0 +1,3 @@
+<h1 class="text-center"><%= t "carts.show" %></h1>
+
+<%= render partial: "item_list", locals: {items: @cart.line_items} %>
