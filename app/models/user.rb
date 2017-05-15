@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  ratyrate_rater
   has_many :products
   has_many :orders, dependent: :destroy
   after_initialize :init

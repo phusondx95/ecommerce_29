@@ -4,6 +4,7 @@
     <li class="title"><%= @product.title %></li>
     <li><%= @product.description %></li>
     <li><%= @product.price %>d</li>
+    <%= rating_for @product, "rating" %>
   </ul>
   <% if logged_in? %>
     <% if current_user.is_admin %>
