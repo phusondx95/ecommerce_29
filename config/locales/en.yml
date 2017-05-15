@@ -9,7 +9,14 @@ en:
     about: "About"
     news: "News"
     products: "Products"
+  admin: "Admin"
+  ad:
+    set: "Set admin"
+    remove: "Remove admin"
+    success: "User role has been changed"
+    sure?: "Are you sure?"
   users:
+    all: "All users"
     login: "Log in"
     logout: "Logout"
     signup: "Get Started"
@@ -150,3 +157,7 @@ en:
   admin: "Admin"
   ad:
     sure?: "Are you sure?"
+  stats:
+    head: "Statistics"
+    pie_title: "Order numbers of each product"
+    bar_title: "Purchased number of each product"

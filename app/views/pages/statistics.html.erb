@@ -1,0 +1,15 @@
+<h1 class="text-center"><%= t "stats.head" %></h1>
+
+<script type="text/javascript">
+  <%= render partial: "statistics_charts", handlers: [:erb], formats: [:js],
+    locals: {product_orders: @product_orders, purchased_products: @purchased_products} %>
+</script>
+
+<div class="text-center">
+  <table class="columns">
+    <tr>
+      <td><div id="piechart_div"></div></td>
+      <td><div id="barchart_div"></div></td>
+    </tr>
+  </table>
+</div>

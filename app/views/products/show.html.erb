@@ -1,3 +1,5 @@
+<%= link_to t("back"), url_for(:back), class: "btn btn-xs btn-default" %>
+
 <div class="container">
   <div class="image">
     <%= image_tag @product.image_url unless @product.image_url.blank? %>
@@ -6,8 +8,12 @@
     <li class="title"><%= @product.title %></li>
     <li><%= @product.description %></li>
     <li><%= @product.price %>d</li>
-    <li><%= rating_for @product, "rating" %></li>
     <li><%= t "products.views" %>: <%= @product.views %></li>
+    <li><%= rating_for @product, "rating" %></li>
+    <li><%= link_to 'Share on Facebook', "https://www.facebook.com/dialog/feed?
+      app_id=1481916678549936&display=popup&amp;caption=An%20example%20caption
+      &link=#{product_url(@product)}&redirect_uri=#{product_url(@product)}",
+      target: :blank %></li>
   </ul>
   <% if logged_in? %>
     <% if current_user.is_admin %>
@@ -17,4 +23,7 @@
         data: {confirm: t("products.delete?")}, class: "btn btn-danger delete-p" %>
     <% end %>
   <% end %>
+  <div class="fb-comments" data-href="<%= product_url(@product) %>"
+    data-numposts="5"></div>
+  </div>
 </div>

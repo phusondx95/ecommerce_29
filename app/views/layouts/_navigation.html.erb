@@ -8,9 +8,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-
       <%= link_to t("home.title"), "/", class: "navbar-brand" %>
     </div>
+
     <div class="collapse navbar-collapse" id="navbar-collapse">
       <ul class="nav navbar-nav ">
         <li><%= link_to t("pages.about"), about_path %></li>
@@ -28,7 +28,10 @@
                 <li><%= link_to t("orders.index"), orders_path %></li>
                 <li><%= link_to t("products.btn_create"), new_product_path %></li>
                 <li><%= link_to t("categories.new"), new_category_path %></li>
-                <li><%= link_to t("products.unapproved"), products_path(unapproved: true) %></li>
+                <li>
+                  <%= link_to t("products.unapproved"), products_path(unapproved: true) %>
+                </li>
+                <li><%= link_to t("stats.head"), statistics_path %></li>
               </ul>
           </li>
           <% else %>
@@ -39,6 +42,7 @@
           <% end %>
         <% end %>
       </ul>
+
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
           <li class="dropdown">

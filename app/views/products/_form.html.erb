@@ -11,7 +11,12 @@
         <%= f.text_area :description %>
 
         <%= f.label :image_url %>
-        <%= f.text_field :image_url %>
+        <%= f.file_field :image_url %>
+        <% if f.object.image_url? %>
+          <%= image_tag f.object.image_url.thumb.url %>
+          <%= f.label :remove_image_url %>
+          <%= f.check_box :remove_image_url %>
+        <% end %>
 
         <%= f.label :price %>
         <%= f.text_field :price %>
