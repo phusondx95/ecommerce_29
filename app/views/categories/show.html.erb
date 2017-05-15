@@ -1,1 +1,6 @@
+<%= link_to t("categories.update"), edit_category_path(@category) %>
+
+<%= link_to t("categories.delete"), @category, method: :delete,
+  data: {confirm: t("categories.delete?")} %>
+
 <%= render partial: "products/products", locals: {products: @products} %>
