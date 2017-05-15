@@ -10,8 +10,33 @@ module CartOrder
     current_item
   end
 
+  def send_mail order
+    if order.status == t("orders.received")
+      OrderMailer.received(order).deliver_later
+    elsif order.status == t("orders.shipped")
+      OrderMailer.shipped(order).deliver_later
+    else
+      OrderMailer.canceled(order).deliver_later
+    end
+  end
+
   def total_price item
     item.price * item.quantity
+  end
+
+  def total_cost order
+    cost = 0
+    order.line_items.each do |item|
+      cost += item.price * item.quantity
+    end
+    cost
+  end
+
+  def add_line_items_to_order cart, order
+    cart.line_items.each do |item|
+      order.line_items << item
+      item.cart_id = nil
+    end
   end
 
   private
