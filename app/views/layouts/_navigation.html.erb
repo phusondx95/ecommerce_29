@@ -15,7 +15,14 @@
       <ul class="nav navbar-nav ">
         <li><%= link_to t("pages.about"), about_path %></li>
         <li><%= link_to t("pages.news"), news_path %></li>
-        <li><%= link_to t("pages.products"), "" %></li>
+        <li><%= link_to t("pages.products"), products_path %></li>
+        <% if logged_in? %>
+          <% if current_user.is_admin %>
+            <li><%= link_to t("products.btn_create"), new_product_path %></li>
+          <% else %>
+            <li><%= link_to t("products.suggest"), new_product_path %></li>
+          <% end %>
+        <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>

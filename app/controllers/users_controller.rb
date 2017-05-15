@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :load_user, only: :show
   before_action :require_logged_in, only: [:edit, :update]
   before_action :correct_user, only: [:edit, :update]
-  before_action :admin_user, only: :index
+  before_action :verify_admin, only: :index
 
   def index; end
 
@@ -68,13 +68,6 @@ class UsersController < ApplicationController
     @user = User.find_by id: params[:id]
     if @user != current_user
       flash[:danger] = t "users.not_correct_user"
-      redirect_to root_path
-    end
-  end
-
-  def admin_user
-    if !current_user.is_admin
-      flash[:danger] = t "users.not_admin"
       redirect_to root_path
     end
   end

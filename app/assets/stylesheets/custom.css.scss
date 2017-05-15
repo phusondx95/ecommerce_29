@@ -46,3 +46,43 @@ li {
 .well {
   position: relative;
 }
+
+.image {
+  display: inline-block;
+}
+
+ul.info {
+  display: inline-block;
+  float: right;
+  margin: 20px 140px;
+}
+
+li.title {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.thumbnail{
+  width: 230px;
+  height: 280px;
+  overflow: auto;
+}
+
+.add-cart {
+  position: absolute;
+  bottom: 30px;
+}
+
+.caption {
+  position: absolute;
+  bottom: 90px;
+}
+
+.edit-p {
+  margin-top: 10px;
+}
+
+.delete-p {
+  float: right;
+  margin-top: 10px;
+}
