@@ -1,0 +1,20 @@
+class Product < ApplicationRecord
+  belongs_to :user
+  before_create :approve_product
+  validates :title, :description, :image_url, presence: true
+  validates :title, uniqueness: true, length: {maximum: Settings.max_name}
+  validates :description, length: {maximum: Settings.max_des}
+  validates :price, numericality: {greater_than_or_equal_to: Settings.min_price}
+  validates :image_url, format: {
+    with: %r{\.(gif|jpg|png)\z}i,
+    message: I18n.t("products.image")
+  }
+
+  scope :valid_products, -> {where(is_approved: true)}
+  scope :order_newest, -> {order(created_at: :desc)}
+
+  def approve_product
+    return self.is_approved = true if self.user.is_admin
+    self.is_approved = false
+  end
+end
