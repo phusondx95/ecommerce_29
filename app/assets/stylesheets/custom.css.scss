@@ -68,6 +68,16 @@ li.title {
   overflow: auto;
 }
 
+.thumbnail img {
+  height: 80px;
+  width: 120px;
+}
+
+.image img {
+  height: 260px;
+  width: 260px;
+}
+
 .add-cart {
   position: absolute;
   bottom: 30px;
@@ -75,7 +85,7 @@ li.title {
 
 .caption {
   position: absolute;
-  bottom: 90px;
+  bottom: 75px;
 }
 
 .edit-p {
@@ -85,4 +95,41 @@ li.title {
 .delete-p {
   float: right;
   margin-top: 10px;
+}
+
+.del_line_item {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.quantity {
+  display: inline-block;
+  width: 20%;
+}
+
+.price {
+  display: inline-block;
+  float: right
+}
+
+.order {
+  text-align: center;
+}
+
+.shop {
+  float: right;
+}
+
+.pag {
+  display: inline-block;
+}
+
+.cart {
+  display: inline-block;
+  float: right;
+}
+
+.container {
+  margin-top: 5px;
 }
