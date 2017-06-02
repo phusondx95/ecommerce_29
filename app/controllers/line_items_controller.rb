@@ -27,7 +27,7 @@ class LineItemsController < ApplicationController
     if @line_item.destroy
       flash[:success] = t "line_items.deleted"
     else
-      flash[:danger] = t "line_items.delete_fail"
+      flash[:danger] = t "line_items.delete_failed"
     end
     redirect_to :back
   end
