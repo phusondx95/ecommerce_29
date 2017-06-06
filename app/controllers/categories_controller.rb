@@ -16,9 +16,29 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def edit; end
+
+  def update
+    if @category.update category_params
+      flash[:success] = t "categories.updated"
+      redirect_to products_path
+    else
+      render :edit
+    end
+  end
+
   def show
     @products = @category.products.order_newest.page(params[:page])
       .per Settings.items_per_pages
+  end
+
+  def destroy
+    if @category.destroy
+      flash[:success] = t "categories.deleted"
+      redirect_to products_path
+    else
+      redirect_to :back
+    end
   end
 
   private
