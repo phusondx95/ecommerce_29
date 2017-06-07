@@ -5,8 +5,13 @@ class ProductsController < ApplicationController
   before_action :load_categories, except: :destroy
 
   def index
-    @products = products_search(params[:search]).order_newest.page(params[:page]).
-      per Settings.items_per_pages
+    if params[:filter]
+      @products = filter_products(params[:filter]).page(params[:page])
+        .per Settings.items_per_pages
+    else
+      @products = products_search(params[:search]).order_newest.page(params[:page])
+        .per Settings.items_per_pages
+    end
     @cart = Cart.find_by id: session[:cart_id]
   end
 

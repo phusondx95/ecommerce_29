@@ -15,6 +15,10 @@ class Product < ApplicationRecord
 
   scope :valid_products, -> {where(is_approved: true)}
   scope :order_newest, -> {order(created_at: :desc)}
+  scope :order_oldest, -> {order(created_at: :asc)}
+  scope :alphabet, -> {order(title: :asc)}
+  scope :price_high_to_low, -> {order(price: :desc)}
+  scope :price_low_to_high, -> {order(price: :asc)}
 
   def approve_product
     return self.is_approved = true if self.user.is_admin

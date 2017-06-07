@@ -6,8 +6,8 @@ class OrdersController < ApplicationController
   before_action :load_order, only: [:show, :update, :destroy]
 
   def index
-    @orders = Order.all.newest.page(params[:page]).
-      per Settings.items_per_pages
+    @orders = Order.all.newest.page(params[:page])
+      .per Settings.items_per_pages
   end
 
   def new

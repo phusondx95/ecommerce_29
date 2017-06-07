@@ -123,4 +123,13 @@ en:
     category: "Category"
     sub: "Sub Category"
     not_found: "Can not find this category"
+  back: "Back"
   search: "Search"
+  filter:
+    sort_by: "Sort by"
+    all: "All"
+    oldest: "Oldest"
+    newest: "Newest"
+    alph: "Alphabet"
+    price_high_to_low: "Price: High to Low"
+    price_low_to_high: "Price: Low to High"

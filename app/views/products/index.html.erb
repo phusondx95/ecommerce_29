@@ -43,6 +43,38 @@
   </div>
 </div>
 
+<div class="dropdown sort">
+  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+    <% if params[:filter].nil? %>
+      <%= t "filter.sort_by" %>
+    <% else %>
+      <%= params[:filter] %>
+    <% end %>
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li>
+      <%= link_to t("filter.all"), products_path(filter: t("filter.all")) %>
+    </li>
+    <li>
+      <%= link_to t("filter.oldest"), products_path(filter: t("filter.oldest")) %>
+    </li>
+    <li>
+      <%= link_to t("filter.newest"), products_path(filter: t("filter.newest")) %>
+    </li>
+    <li>
+      <%= link_to t("filter.alph"), products_path(filter: t("filter.alph")) %>
+    </li>
+    <li>
+      <%= link_to t("filter.price_high_to_low"),
+        products_path(filter: t("filter.price_high_to_low")) %>
+    </li>
+    <li>
+      <%= link_to t("filter.price_low_to_high"),
+        products_path(filter: t("filter.price_low_to_high")) %>
+    </li>
+  </ul>
+</div>
 
 <div id="products"><%= render partial: "products",
   locals: {products: @products} %></div>
