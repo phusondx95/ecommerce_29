@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  ratyrate_rateable "rating"
   belongs_to :user
   has_many :line_items
   has_and_belongs_to_many :categories
