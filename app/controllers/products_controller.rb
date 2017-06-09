@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   before_action :load_product, except: [:index, :new, :create]
   before_action :verify_admin, only: [:edit, :update, :destroy]
   before_action :load_categories, except: :destroy
+  before_action :get_views, only: :show
 
   def index
     if params[:filter]
@@ -66,6 +67,13 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit :title, :description, :image_url, :price, category_ids: []
+    params.require(:product).permit :title, :description,
+      :image_url, :price, category_ids: []
+  end
+
+  def get_views
+    @product.impressions.create ip_address: request.remote_ip,
+      user_id: current_user.id
+    @product.update_attribute :views, impression_count(@product)
   end
 end

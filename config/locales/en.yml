@@ -53,6 +53,7 @@ en:
     add_cart: "Add to cart"
     update: "You have updated this product"
     item_exist: "This item is in a cart"
+    views: "Views"
   line_items:
     create_success: "Added item to cart"
     create_failed: "Can not add item to cart"
@@ -128,6 +129,9 @@ en:
   filter:
     sort_by: "Sort by"
     all: "All"
+    hot: "Hot"
+    most_viewed: "Most viewed"
+    rating: "Rating"
     oldest: "Oldest"
     newest: "Newest"
     alph: "Alphabet"
