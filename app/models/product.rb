@@ -6,7 +6,7 @@ class Product < ApplicationRecord
   has_many :impressions, as: :impressionable
   before_create :approve_product
   before_destroy :not_referenced_by_line_item
-  validates :title, :description, :image_url, presence: true
+  validates :title, presence: true
   validates :title, uniqueness: true, length: {maximum: Settings.max_name}
   validates :description, length: {maximum: Settings.max_des}
   validates :price, numericality: {greater_than_or_equal_to: Settings.min_price}
@@ -16,6 +16,7 @@ class Product < ApplicationRecord
   }
 
   scope :valid_products, -> {where(is_approved: true)}
+  scope :unapproved, -> {where(is_approved: false)}
   scope :most_viewed, -> {order(views: :desc)}
   scope :rating, -> {order(ratings: :desc)}
   scope :most_sold, -> {order(sold_units: :desc)}

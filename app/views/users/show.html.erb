@@ -10,7 +10,11 @@
       <% if current_user == @user %>
         <%= link_to t("users.delete"), @user, method: :delete,
           data: {confirm: t("users.delete?")}, class: "btn btn-danger" %>
-        <%= render partial: "orders/order_list_user", locals: {orders: @user.orders} %>
+        <%= render partial: "orders/order_list_user", locals: {orders: @user.orders
+          .page(params[:page]).per(Settings.items_per_pages)} %>
+
+        <%= render partial: "products_list", locals: {products: @user.products
+          .page(params[:page]).per(Settings.items_per_pages)} %>
       <% end %>
     </div>
   </div>

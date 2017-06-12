@@ -1,0 +1,41 @@
+<h1 class="text-center"><%= t "users.products" %></h1>
+
+<div class="pag"><%= paginate products %></div>
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th><%= t "products.name" %></th>
+      <th><%= t "products.categories" %></th>
+      <th><%= t "products.created_at" %></th>
+      <th><%= t "products.status" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% products.each do |product| %>
+      <tr>
+        <td><%= product.title %></td>
+        <td>
+          <% if !product.categories.empty? %>
+            <% product.categories.each do |c| %>
+              <% if c == product.categories.last %>
+                <%= c.name %>.
+              <% else %>
+                <%= c.name %>,
+              <% end %>
+            <% end %>
+          <% else %>
+            <%= t "categories.none" %>
+          <% end %>
+        </td>
+        <td><%= product.created_at %></td>
+        <td>
+          <% if product.is_approved %>
+            <%= t "products.approved" %>
+          <% else %>
+            <%= t "products.status_unapproved" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

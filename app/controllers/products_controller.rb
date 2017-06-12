@@ -9,6 +9,9 @@ class ProductsController < ApplicationController
     if params[:filter]
       @products = filter_products(params[:filter]).page(params[:page])
         .per Settings.items_per_pages
+    elsif params[:unapproved]
+      @products = Product.unapproved.order_newest.page(params[:page])
+        .per Settings.items_per_pages
     else
       @products = products_search(params[:search]).order_newest.page(params[:page])
         .per Settings.items_per_pages
@@ -36,7 +39,14 @@ class ProductsController < ApplicationController
   def edit; end
 
   def update
-    if @product.update product_params
+    if params[:is_approved]
+      if @product.update is_approved: params[:is_approved]
+        flash[:success] = t "products.approve_success"
+      else
+        flash[:danger] = t "products.approve_fail"
+      end
+      redirect_to :back
+    elsif @product.update product_params
       flash[:success] = t "products.update"
       redirect_to product_path @product
     else
