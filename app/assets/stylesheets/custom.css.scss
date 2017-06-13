@@ -94,11 +94,67 @@ li.title {
 }
 
 .edit-p {
+  display: inline-block;
+  float: left;
   margin-top: 10px;
 }
 
 .delete-p {
+  display: inline-block;
+  margin-top: 10px;
   float: right;
+}
+
+.del_line_item {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.quantity {
+  display: inline-block;
+  width: 20%;
+}
+
+.price {
+  display: inline-block;
+  float: right
+}
+
+.order {
+  text-align: center;
+}
+
+.shop {
+  float: right;
+}
+
+.pag {
+  display: inline-block;
+}
+
+.container {
+  margin-top: 5px;
+}
+
+.status {
+  width: 15%;
+}
+
+.del-order {
+  width: 15%;
+}
+
+.input-group form.navbar-form {
+  text-align: center !important;
+}
+
+button {
+  margin-top: -15px !important;
+}
+
+.star {
+  display: inline-block;
   margin-top: 10px;
 }
 
@@ -223,4 +279,21 @@ button {
 
 .search {
   display: inline-block;
+}
+
+.rating-shop {
+  position: absolute;
+  margin-left: 120px;
+  bottom: 30px;
+}
+.fb-comments {
+  width: 600px;
+}
+
+#piechart_div {
+  border: 1px solid #ccc;
+}
+
+#barchart_div {
+  border: 1px solid #ccc;
 }
